@@ -1,62 +1,48 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Ruby: OOP School Library
 
-> Description the project.
-
+> Ruby app to track main operations in the library.
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
-
-## Live Demo (if available)
-
-[Live Demo Link](https://livedemo.com)
-
+- Major languages: Ruby
 
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
 
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
+You need to have a Ruby installed in your local machine 
+
 ### Setup
 
-### Install
+To setup the OOP School Library project in your local, in the repo page: 
+- click on code (dropdown list) > Download as ZIP. 
+- or open terminal of path you want to install project and run this command:
+`git clone git@github.com:Hope1226/oop-school-library.git`
 
-### Usage
+## Test Methods
+- Run the following comand to test the methods in your command line:
+- `irb`
+- `load './class_name'`
+- `name = Person/Student/Teacher.new(respective parameters)`
 
-### Run tests
+## Author
 
-### Deployment
+👤 **Umidjon Ustabaev**
+
+- GitHub: [@Hope1226](https://github.com/Hope1226)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/umidjon-ustabaev/)
 
 
-
-## Authors
-
-👤 **Author1**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/Hope1226/enumerable-methods/issues).
 
 ## Show your support
 
