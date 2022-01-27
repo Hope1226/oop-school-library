@@ -24,12 +24,12 @@ class Main
       print 'Has a parent permission? [Y/N]'
       permission = gets.chomp.downcase
       @people_list << Student.new(age, name, parent_permission: permission == 'y')
-      print 'Student has been created successfully'
+      puts 'Student has been created successfully'
     else
       print 'Specialization:'
       spec = gets.chomp
       @people_list << Teacher.new(spec, age, name)
-      print 'Teacher has been created successfully'
+      puts 'Teacher has been created successfully'
     end
   end
 
@@ -41,8 +41,37 @@ class Main
     @book_list << Book.new(title, author)
     puts "Book: '#{title}' has been created successfully"
   end
+
+  def create_rental
+    puts 'Select a book from the following list by number'
+    if @book_list.empty?
+      puts '( No Books Found )'
+    else
+      @book_list.each_with_index.map do |book, index|
+        puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}"
+      end
+    end
+    index_book = gets.chomp.to_i
+    if @people_list.empty?
+      puts '( No People Found )'
+    else
+      @people_list.each_with_index.map do |person, index|
+        puts "#{index})[#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      end
+    end
+    index_person = gets.chomp.to_i
+    print 'Data: '
+    rent_date = gets.chomp
+    rental = Rental.new(rent_date)
+    @book_list[index_book].add_rental(rental)
+    @people_list[index_person].add_rental(rental)
+    @rental_list << rental
+    puts 'Rental has been created successfully'
+  end
 end
 
 app = Main.new
 app.create_book
-p app.book_list
+app.create_person
+app.create_rental
+p app.people_list
