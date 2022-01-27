@@ -32,7 +32,17 @@ class Main
       print 'Teacher has been created successfully'
     end
   end
+
+  def create_book
+    print 'Title: '
+    title = gets.chomp
+    print 'Author: '
+    author = gets.chomp
+    @book_list << Book.new(title, author)
+    puts "Book: '#{title}' has been created successfully"
+  end
 end
 
 app = Main.new
-app.create_person
+app.create_book
+p app.book_list
