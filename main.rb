@@ -42,23 +42,31 @@ class Main
     puts "Book: '#{title}' has been created successfully"
   end
 
-  def create_rental
-    puts 'Select a book from the following list by number'
-    if @book_list.empty?
+  def show_book_list(list)
+    if list.empty?
       puts '( No Books Found )'
     else
-      @book_list.each_with_index.map do |book, index|
+      list.each_with_index.map do |book, index|
         puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}"
       end
     end
-    index_book = gets.chomp.to_i
-    if @people_list.empty?
+  end
+
+  def show_people_list(list)
+    if list.empty?
       puts '( No People Found )'
     else
-      @people_list.each_with_index.map do |person, index|
+      list.each_with_index.map do |person, index|
         puts "#{index})[#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
       end
     end
+  end
+
+  def create_rental
+    puts 'Select a book from the following list by number'
+    show_book_list(@book_list)
+    index_book = gets.chomp.to_i
+    show_people_list(@people_list)
     index_person = gets.chomp.to_i
     print 'Data: '
     rent_date = gets.chomp
