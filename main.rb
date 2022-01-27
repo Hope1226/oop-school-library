@@ -42,21 +42,21 @@ class Main
     puts "Book: '#{title}' has been created successfully"
   end
 
-  def show_book_list(list)
-    if list.empty?
+  def show_book_list
+    if @book_list.empty?
       puts '( No Books Found )'
     else
-      list.each_with_index.map do |book, index|
+      @book_list.each_with_index.map do |book, index|
         puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}"
       end
     end
   end
 
-  def show_people_list(list)
-    if list.empty?
+  def show_people_list
+    if @people_list.empty?
       puts '( No People Found )'
     else
-      list.each_with_index.map do |person, index|
+      @people_list.each_with_index.map do |person, index|
         puts "#{index})[#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
       end
     end
@@ -64,9 +64,9 @@ class Main
 
   def create_rental
     puts 'Select a book from the following list by number'
-    show_book_list(@book_list)
+    show_book_list
     index_book = gets.chomp.to_i
-    show_people_list(@people_list)
+    show_people_list
     index_person = gets.chomp.to_i
     print 'Data: '
     rent_date = gets.chomp
@@ -76,10 +76,21 @@ class Main
     @rental_list << rental
     puts 'Rental has been created successfully'
   end
+
+  def show_rentals_for_person
+    print 'ID of person: '
+    person_id = gets.chomp.to_i
+    person = @people_list.select { |target| target.id == person_id }[0]
+    person.rentals.map { |rent| puts "Data: #{rent.date}, Book: \"#{rent.book.title}\", by #{rent.book.author}" }
+  end
 end
 
 app = Main.new
 app.create_book
 app.create_person
+app.create_person
+app.create_person
+app.show_people_list
 app.create_rental
-p app.people_list
+app.show_rentals_for_person
+
