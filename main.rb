@@ -14,19 +14,19 @@ class Main
   end
 
   def create_person
-    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]:'
+    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
     status = gets.chomp
-    print 'Age:'
+    print 'Age: '
     age = gets.chomp
-    print 'Name:'
+    print 'Name: '
     name = gets.chomp
     if status == '1'
-      print 'Has a parent permission? [Y/N]'
+      print 'Has a parent permission? [Y/N] '
       permission = gets.chomp.downcase
       @people_list << Student.new(age, name, parent_permission: permission == 'y')
       puts 'Student has been created successfully'
     else
-      print 'Specialization:'
+      print 'Specialization: '
       spec = gets.chomp
       @people_list << Teacher.new(spec, age, name)
       puts 'Teacher has been created successfully'
@@ -68,7 +68,7 @@ class Main
     index_book = gets.chomp.to_i
     show_people_list
     index_person = gets.chomp.to_i
-    print 'Data: '
+    print 'Date: '
     rent_date = gets.chomp
     rental = Rental.new(rent_date)
     @book_list[index_book].add_rental(rental)
@@ -84,13 +84,3 @@ class Main
     person.rentals.map { |rent| puts "Data: #{rent.date}, Book: \"#{rent.book.title}\", by #{rent.book.author}" }
   end
 end
-
-app = Main.new
-app.create_book
-app.create_person
-app.create_person
-app.create_person
-app.show_people_list
-app.create_rental
-app.show_rentals_for_person
-
