@@ -76,7 +76,7 @@ class Main
       puts '( No Books Found )'.red
     else
       @book_list.each_with_index.map do |book, index|
-        puts "1) Title: \"#{book.title}\", Author: #{book.author}".yellow
+        puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}".yellow
       end
     end
 
@@ -97,14 +97,10 @@ class Main
 
   def create_rental
     puts 'Select a book from the following list by number'.blue
-    @book_list.each_with_index.map do |book, index|
-      puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}".yellow
-    end
+    show_book_list
     index_book = gets.chomp.to_i
     puts 'Select a person from the following list by number'.blue
-    @people_list.each_with_index.map do |person, index|
-      puts "#{index})[#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}".yellow
-    end
+    show_people_list
     index_person = gets.chomp.to_i
     print 'Date: '.blue
     rent_date = gets.chomp
