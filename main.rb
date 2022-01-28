@@ -101,6 +101,7 @@ class Main
       puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}".yellow
     end
     index_book = gets.chomp.to_i
+    puts 'Select a person from the following list by number'.blue
     @people_list.each_with_index.map do |person, index|
       puts "#{index})[#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}".yellow
     end
