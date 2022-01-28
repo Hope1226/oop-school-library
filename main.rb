@@ -101,7 +101,9 @@ class Main
     show_book_list
     index_book = gets.chomp.to_i
     puts 'Select a person from the following list by number'.blue
-    show_people_list
+    @people_list.each_with_index.map do |person, index|
+      puts "#{index})[#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}".yellow
+    end
     index_person = gets.chomp.to_i
     print 'Date: '.blue
     rent_date = gets.chomp
