@@ -8,6 +8,11 @@
 
 - Major languages: Ruby
 
+## Live Demo
+
+Best way to run the app is by the link bellow:
+[oop-school-library](https://replit.com/@UmidjonUstabaev/oop-school-library-1)
+
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
@@ -23,11 +28,9 @@ To setup the OOP School Library project in your local, in the repo page:
 - or open terminal of path you want to install project and run this command:
 `git clone git@github.com:Hope1226/oop-school-library.git`
 
-## Test Methods
+## Instruction on the usage
 - Run the following comand to test the methods in your command line:
-- `irb`
-- `load './class_name'`
-- `name = Person/Student/Teacher.new(respective parameters)`
+- `ruby main.rb`
 
 ## Author
 
