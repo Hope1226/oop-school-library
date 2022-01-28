@@ -4,6 +4,8 @@
 
 > Ruby app to track main operations in the library.
 
+![screenshot](./app_screenshot.png)
+
 ## Built With
 
 - Major languages: Ruby
@@ -23,11 +25,10 @@ To setup the OOP School Library project in your local, in the repo page:
 - or open terminal of path you want to install project and run this command:
 `git clone git@github.com:Hope1226/oop-school-library.git`
 
-## Test Methods
-- Run the following comand to test the methods in your command line:
-- `irb`
-- `load './class_name'`
-- `name = Person/Student/Teacher.new(respective parameters)`
+## Instruction on the usage
+- Run the following comands in your command line:
+- `bundle install`
+- `ruby main.rb`
 
 ## Author
 
