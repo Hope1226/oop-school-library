@@ -5,6 +5,7 @@ require './student'
 require './teacher'
 require './classroom'
 require 'colorize'
+require 'pry'
 
 class Main
   attr_accessor :book_list, :people_list, :rental_list
