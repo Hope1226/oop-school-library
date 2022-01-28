@@ -8,11 +8,6 @@
 
 - Major languages: Ruby
 
-## Live Demo
-
-Best way to run the app is by the link bellow:
-[oop-school-library](https://replit.com/@UmidjonUstabaev/oop-school-library-1)
-
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
@@ -30,6 +25,7 @@ To setup the OOP School Library project in your local, in the repo page:
 
 ## Instruction on the usage
 - Run the following comand to test the methods in your command line:
+- `bundle install`
 - `ruby main.rb`
 
 ## Author
