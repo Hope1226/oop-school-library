@@ -1,14 +1,15 @@
 # rubocop:disable Metrics/CyclomaticComplexity
-require './book'
+# rubocop:disable Metrics/MethodLength
 require './classroom'
 require './person_creator'
+require './book_creator'
 
 class Main
   attr_accessor :book_list, :rental_list
 
   def initialize
-    @book_list = []
     @person_creator = PersonCreator.new
+    @book_creator = BookCreator.new
   end
 
   def start
@@ -22,44 +23,35 @@ class Main
 
   def execute_option(option)
     case option
-    when '1' then show_book_list
-    when '2' then @person_creator.show_people_list
-    when '3' then @person_creator.create_person
-    when '4' then create_book
-    when '5' then create_rental
-    when '6' then show_rentals_for_person
-    when '7' then puts 'See you soon!'
+    when '1'
+      @book_creator.show_book_list
+      start
+    when '2'
+      @person_creator.show_people_list
+      start
+    when '3'
+      @person_creator.create_person
+      start
+    when '4'
+      @book_creator.create_book
+      start
+    when '5'
+      create_rental
+      start
+    when '6'
+      show_rentals_for_person
+      start
+    when '7'
+      puts 'See you soon!'
     end
   end
 
   # rubocop:enable Metrics/CyclomaticComplexity
-
-  def create_book
-    print 'Title: '.blue
-    title = gets.chomp
-    print 'Author: '.blue
-    author = gets.chomp
-    @book_list << Book.new(title, author)
-    puts "Book: '#{title}' has been created successfully".green
-
-    start
-  end
-
-  def show_book_list
-    if @book_list.empty?
-      puts '( No Books Found )'.red
-    else
-      @book_list.each_with_index.map do |book, index|
-        puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}".yellow
-      end
-    end
-
-    start
-  end
+  # rubocop:enable Metrics/MethodLength
 
   def create_rental
     puts 'Select a book from the following list by number'.blue
-    @book_list.each_with_index.map do |book, index|
+    @book_creator.book_list.each_with_index.map do |book, index|
       puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}".yellow
     end
     index_book = gets.chomp.to_i
@@ -71,7 +63,7 @@ class Main
     print 'Date: '.blue
     rent_date = gets.chomp
     rental = Rental.new(rent_date)
-    @book_list[index_book].add_rental(rental)
+    @book_creator.book_list[index_book].add_rental(rental)
     @person_creator.people_list[index_person].add_rental(rental)
     @rental_list << rental
     puts 'Rental has been created successfully'.green
