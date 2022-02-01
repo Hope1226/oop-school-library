@@ -1,9 +1,9 @@
-require './person'
 require './student'
 require './teacher'
-require 'colorize'
+require './display'
 
 class PersonCreator
+  include Display
   attr_accessor :people_list
 
   def initialize
@@ -11,23 +11,15 @@ class PersonCreator
   end
 
   def create_person
-    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '.blue
-    status = gets.chomp
-    print 'Age: '.blue
-    age = gets.chomp
-    print 'Name: '.blue
-    name = gets.chomp
-    if status == '1'
-      print 'Has a parent permission? [Y/N] '.blue
-      permission = gets.chomp.downcase
-      @people_list << Student.new(age, name, parent_permission: permission == 'y')
-      puts 'Student has been created successfully'.green
-    else
-      print 'Specialization: '.blue
-      spec = gets.chomp
-      @people_list << Teacher.new(spec, age, name)
-      puts 'Teacher has been created successfully'.green
-    end
+    status, age, name, spec_permission = dis_create_person
+    @people_list << (if status == '1'
+                       Student.new(age, name,
+                                   parent_permission: spec_permission == 'y')
+                     else
+                       Teacher.new(
+                         spec_permission, age, name
+                       )
+                     end)
   end
 
   def show_people_list
