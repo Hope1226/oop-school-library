@@ -1,6 +1,8 @@
 require './book'
+require './display'
 
 class BookCreator
+  include Display
   attr_accessor :book_list
 
   def initialize
@@ -8,12 +10,8 @@ class BookCreator
   end
 
   def create_book
-    print 'Title: '.blue
-    title = gets.chomp
-    print 'Author: '.blue
-    author = gets.chomp
+    title, author = dis_create_book
     @book_list << Book.new(title, author)
-    puts "Book: '#{title}' has been created successfully".green
   end
 
   def show_book_list
