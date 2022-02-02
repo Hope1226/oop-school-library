@@ -1,12 +1,21 @@
 require './book'
 require './display'
+require 'json'
 
 class BookCreator
   include Display
   attr_accessor :book_list
 
   def initialize
-    @book_list = []
+    if File.exist?('books.json')
+      data = JSON.parse(File.read('books.json'))
+      @book_list = data.map do |obj|
+        obj_data = JSON.parse(obj)
+        Book.new(obj_data['title'], obj_data['author'])
+      end
+    else
+      @book_list = []
+    end
   end
 
   def create_book
@@ -22,5 +31,15 @@ class BookCreator
         puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}".yellow
       end
     end
+  end
+
+  def preserve_book
+    books_data = @book_list.map do |book|
+      JSON.dump({
+                  title: book.title,
+                  author: book.author
+                })
+    end
+    File.open('books.json', (File.empty?('books.json') ? 'a' : 'w').to_s) { |file| file.write(books_data) }
   end
 end
