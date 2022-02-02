@@ -42,6 +42,7 @@ class Main
       @rental_creator.show_rentals_for_person(@person_creator.people_list)
       start
     when '7'
+      @book_creator.preserve_book
       puts 'See you soon!'
     end
   end
