@@ -4,7 +4,7 @@ require './rental'
 class Person
   attr_reader :id, :rentals
 
-  attr_accessor :name, :age
+  attr_accessor :name, :age, :parent_permission
 
   def initialize(age, name = 'Unknown', parent_permission: true)
     @id = rand(1000)

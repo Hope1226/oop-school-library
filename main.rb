@@ -43,6 +43,7 @@ class Main
       start
     when '7'
       @book_creator.preserve_book
+      @person_creator.preserve_person
       puts 'See you soon!'
     end
   end
