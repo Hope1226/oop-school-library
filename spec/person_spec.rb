@@ -1,4 +1,5 @@
 require './person'
+require './rental'
 
 describe Person do
   context 'When testing a person class' do
@@ -21,6 +22,13 @@ describe Person do
       person_test = Person.new(23, 'juliohulioinglesias')
       person_test.validate_name
       expect(person_test.name).to eql 'Juliohulio'
+    end
+
+    it 'the add_rental method adds new rental class to the persons rentals' do
+      person_test = Person.new(23, 'juliohulioinglesias')
+      renatl_test = Rental.new('22/02/2022')
+      person_test.add_rental(renatl_test)
+      expect(person_test.rentals.length).to eql 1
     end
   end
 end
