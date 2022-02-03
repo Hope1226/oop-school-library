@@ -30,6 +30,12 @@ To setup the OOP School Library project in your local, in the repo page:
 - `bundle install`
 - `ruby main.rb`
 
+## Tests
+- To run tests for current app, please run below commands in your terminal:
+- `cd oop-school-library/spec`
+- `gem install rspec`
+- `rspec spec spec/book_spec.rb`
+
 ## Author
 
 👤 **Umidjon Ustabaev**
