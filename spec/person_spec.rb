@@ -4,7 +4,7 @@ describe Person do
   context 'When testing a person class' do
     it 'the person name should return correct name' do
       person_test = Person.new(24, 'John Cena')
-      expect(person_test.name).to eql'John Cena'
+      expect(person_test.name).to eql 'John Cena'
     end
 
     it 'can_use_services? should return true if age is more then 18 or there is parrent permission' do
