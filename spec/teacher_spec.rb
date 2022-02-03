@@ -1,7 +1,7 @@
-require '../teacher'
+require './teacher'
 
 describe Teacher do
-  context 'When testin the teacher class' do
+  context 'When testing the teacher class' do
     it 'the teacher\' specialization should be correct' do
       teacher_test = Teacher.new('Math', 23, 'Jonny Nesh')
       expect(teacher_test.specialization).to eql 'Math'

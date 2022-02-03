@@ -1,4 +1,4 @@
-require '../book'
+require './book'
 
 describe Book do
   context 'When testing Book class' do
@@ -7,7 +7,7 @@ describe Book do
       expect(temp_book.title).to eql 'Rich Dad and Poor Dad'
     end
 
-    it 'the book reantals length should return 0' do
+    it 'the book rentals length should return 0' do
       temp_book = Book.new('Rich Dad and Poor Dad', 'Robert Kiosaki')
       expect(temp_book.rentals.length).to eql 0
     end
