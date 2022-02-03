@@ -1,1 +1,1 @@
-["{\"class\":\"Student\",\"name\":\"student\",\"age\":\"21\",\"parent_permission\":true}", "{\"class\":\"Teacher\",\"name\":\"teacher\",\"age\":\"42\",\"specialization\":\"teach\"}", "{\"class\":\"Student\",\"name\":\"josh\",\"age\":\"32\",\"parent_permission\":false}", "{\"class\":\"Teacher\",\"name\":\"jacob\",\"age\":\"13\",\"specialization\":\"ido\"}"]
+["{\"class\":\"Student\",\"name\":\"Hope\",\"id\":89,\"age\":\"23\",\"parent_permission\":true}", "{\"class\":\"Teacher\",\"name\":\"Holly\",\"id\":83,\"age\":\"34\",\"specialization\":\"Math\"}"]

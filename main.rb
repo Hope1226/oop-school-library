@@ -9,7 +9,7 @@ class Main
   def initialize
     @person_creator = PersonCreator.new
     @book_creator = BookCreator.new
-    @rental_creator = RentalCreator.new
+    @rental_creator = RentalCreator.new(@book_creator.book_list, @person_creator.people_list)
   end
 
   def start
@@ -44,6 +44,7 @@ class Main
     when '7'
       @book_creator.preserve_book
       @person_creator.preserve_person
+      @rental_creator.preserve_rentals
       puts 'See you soon!'
     end
   end

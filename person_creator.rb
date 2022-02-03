@@ -12,9 +12,10 @@ class PersonCreator
       @people_list = data.map do |person|
         person_data = JSON.parse(person)
         if person_data['class'] == 'Student'
-          Student.new(person_data['age'], person_data['name'], parent_permission: person_data['parent_permission'])
-        else 
-          Teacher.new(person_data['specialization'], person_data['age'], person_data['name'])
+          Student.new(person_data['age'], person_data['name'], person_data['id'],
+                      parent_permission: person_data['parent_permission'])
+        else
+          Teacher.new(person_data['specialization'], person_data['age'], person_data['name'], person_data['id'])
         end
       end
     else
@@ -46,20 +47,22 @@ class PersonCreator
 
   def preserve_person
     person_data = @people_list.map do |person|
-      if person.class.name == 'Student'
+      if person.instance_of?(Student)
         JSON.dump({
-          class: person.class,
-          name: person.name,
-          age: person.age,
-          parent_permission: person.parent_permission
-        })
+                    class: person.class,
+                    name: person.name,
+                    id: person.id,
+                    age: person.age,
+                    parent_permission: person.parent_permission
+                  })
       else
         JSON.dump({
-          class: person.class,
-          name: person.name,
-          age: person.age,
-          specialization: person.specialization
-        })
+                    class: person.class,
+                    name: person.name,
+                    id: person.id,
+                    age: person.age,
+                    specialization: person.specialization
+                  })
       end
     end
     File.open('person.json', (File.empty?('person.json') ? 'a' : 'w').to_s) { |file| file.write(person_data) }
