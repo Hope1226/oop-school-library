@@ -37,7 +37,11 @@ To setup the OOP School Library project in your local, in the repo page:
 - GitHub: [@Hope1226](https://github.com/Hope1226)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/umidjon-ustabaev/)
 
+👤 **Ntwali Josue**
 
+- GitHub: [@Ntwali-Josue](https://github.com/Ntwali-Josue)
+- Twitter: [@JosueNtwali](https://twitter.com/JosueNtwali)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/karangwa/)
 
 ## 🤝 Contributing
 
